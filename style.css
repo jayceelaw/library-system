@@ -1,0 +1,60 @@
+/*   turns borders into 1 line seperating + centers table on screen - from w3schools */
+table {
+  border-collapse: collapse; /* from w3schools */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* border colour + alignment/position for header and rows */
+td, th {
+  border: 1px solid #dddddd; /* from w3schools */
+  text-align: left;
+  padding: 8px;
+}
+
+/* alternates colours of rows (gray and white) - from w3schools */
+tr:nth-child(even) {  
+  background-color: #dddddd;
+}
+
+/* buttons to sort by ascending/descending information fields (on table page) */
+.sort {
+  border: none;
+  padding: 0px 0px;
+  background: transparent;
+  display: inline-block;
+}
+
+/* shows up and down arrows as buttons to choose ascending or descending */
+/* turns solid colour when mouse is hovering over - from w3schools */
+.sort:nth-child(odd)::after {
+  content: '△';
+}
+.sort:nth-child(odd):hover::after {
+  content: '▲';
+}
+.sort:nth-child(even)::after {
+  content: '▽';
+}
+.sort:nth-child(even):hover::after {
+  content: '▼';
+}
+
+/* centers page with a "border" around the whole thing */
+#page {
+  width: 95%;
+  margin: 0 auto; /* from w3schools */
+}
+
+/* displays author's 10 references and MRCA results on a seperate line - from w3schools */
+.references, #mrca-results {
+  white-space:pre;
+}
+
+/* italicizes and bolds loading text - from w3schools */
+#loading {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
+}

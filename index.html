@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Assignment #1: Library</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="hideLoader()">
+  <div id="page">
+    <nav>
+      <p>
+        <a href='./index.html'>Search</a>
+      </p>
+      <p>
+        <a href='./table.html'>Table</a>
+      </p>
+    </nav>
+    <h1>Search</h1>
+    
+    <div class="search">
+  <!--     allows user to search for books (as text) by any of the 5 information fields -->
+      <label for="input-search">Search: </label>
+      <input id="input-search" type="text" onkeydown="triggerSearch('submit-search')"> <!--     submits input when user presses enter key - from stack overflow -->
+  
+  <!--     dropdown menu to let user choose which information field to search by - from stack overflow -->
+      <select id="search-select">
+        <option value="title">Book Title</option>
+        <option value="first name">Author First Name</option>
+        <option value="last name">Author Last Name</option>
+        <option value="gender">Gender</option>
+        <option value="UID">Unique ID</option>
+      </select>
+  
+  <!--     submits input to javascript and calls search() function when user presses button -->
+      <button id="submit-search" onclick="search()">Enter</button>
+  <!--     allows user to choose whether they want to search for exact results -->
+      <input id="exact-results" type="checkbox">Exact Results
+    </div>
+  
+  <!--   to display performance time when page loads + item is searched, and error messages (if needed) -->
+    <p id="performance"></p>
+    <p id="error"></p>
+<!--     displays loading message when webpage is still loading everything -->
+    <p id="loading">Loading...</p>
+  
+  <!--   table to display all results from search, hidden by default until there are results to display -->
+    <div id="results" hidden="hidden">
+      <table> <!-- from stack overflow -->
+        <tr> <!-- header of each information field - from stack overflow -->
+          <th>Book Title</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>UID</th>
+          <th>References</th>
+        </tr>
+  <!--       rows are replaced in javascript with books + information to display -->
+  <!--       only supports 10 rows per page, but more can be added if needed -->
+        <tr id="row0"></tr> <!-- from stack overflow -->
+        <tr id="row1"></tr>
+        <tr id="row2"></tr>
+        <tr id="row3"></tr>
+        <tr id="row4"></tr>
+        <tr id="row5"></tr>
+        <tr id="row6"></tr>
+        <tr id="row7"></tr>
+        <tr id="row8"></tr>
+        <tr id="row9"></tr>
+      </table>
+  
+  <!--     buttons to display next/previous page -->
+      <div style="text-align:center"> <!-- from w3 schools -->
+        <input id="prev-page" type="button" value="previous" onclick="prevPage()"/>
+        <input id="next-page" type="button" value="next" onclick="nextPage()"/>
+      </div>
+  <!--     displays current page number and total number of pages -->
+      <p id="pageNum" style="text-align:center"></p>
+    </div>
+
+<!--     *bonus* - allows user to search for mrca of 2 authors by uids -->
+    <div class="mrca">
+      <h1>Find MRCA</h1>
+      <p>Enter UIDs of 2 authors to find the shortest connection between references</p>
+
+<!--       text input for both uids - can also be triggered with "enter" key - from stack overflow -->
+      <label for="mrca-start">Enter first author: </label>
+      <input id="mrca-start" type="text" onkeydown="triggerSearch('submit-mrca')"><br>
+      <label for="mrca-end">Enter second author: </label>
+      <input id="mrca-end" type="text" onkeydown="triggerSearch('submit-mrca')">
+      <button id="submit-mrca" onclick="findMRCA()">Enter</button>
+      
+<!--       connects to javascript to display any error messages, results, number of jumps, and performance time -->
+      <p id="mrca-error"></p>
+      <p id="mrca-results"></p>
+      <p id="jumps"></p>
+      <p id="mrca-performance"></p>
+    </div>
+  </div>
+  
+  <script src="./DO_NOT_TOUCH/dataLoader.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

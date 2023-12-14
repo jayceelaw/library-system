@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+  
+<body onload="displayTable()"> <!-- displays default table when loaded - from stack overflow -->
+  <div id="page">
+    <nav>
+      <p>
+        <a href='./index.html'>Search</a>
+      </p>
+      <p>
+        <a href='./table.html'>Table</a>
+      </p>
+    </nav>
+    <h1>Table</h1>
+  
+  <!--   to display performance time when page loads + table is rearranged -->
+    <p id="performance"></p>
+  <!--     displays loading message when webpage is still loading everything -->
+    <p id="loading">Loading...</p>
+  
+    <table> <!-- from stack overflow -->
+      <tr> <!-- header of information fields with buttons to sort ascending/descending - from stack overflow -->
+        <th>Book Title <button class="sort" onclick="displayTable(sortedTitle)"></button><button class="sort" onclick="displayTable(sortedTitle, true)"></button></th> <!-- sorts table according to button when pressed -->
+        <th>First Name <button class="sort" onclick="displayTable(sortedFN)"></button><button class="sort" onclick="displayTable(sortedFN, true)"></button></th>
+        <th>Last Name <button class="sort" onclick="displayTable(sortedLN)"></button><button class="sort" onclick="displayTable(sortedLN, true)"></button></th>
+        <th>Gender <button class="sort" onclick="displayTable(sortedGender)"></button><button class="sort" onclick="displayTable(sortedGender, true)"></button></th>
+        <th>UID <button class="sort" onclick="displayTable(sortedGuid)"></button><button class="sort" onclick="displayTable(sortedGuid, true)"></button></th>
+        <th>References</th>
+      </tr>
+  <!--     only supports up to 10 rows per page, but more can be added -->
+      <tr id="row0"></tr> <!-- from stack overflow -->
+      <tr id="row1"></tr>
+      <tr id="row2"></tr>
+      <tr id="row3"></tr>
+      <tr id="row4"></tr>
+      <tr id="row5"></tr>
+      <tr id="row6"></tr>
+      <tr id="row7"></tr>
+      <tr id="row8"></tr>
+      <tr id="row9"></tr>
+    </table>
+  
+  <!--   buttons to display next/previous page -->
+    <div style="text-align:center">
+      <input id="prev-page" type="button" value="previous" onclick="prevPage()"/>
+      <input id="next-page" type="button" value="next" onclick="nextPage()"/>
+    </div>
+  <!--   displays current page # and total # of pages -->
+    <p id="pageNum" style="text-align:center"></p>
+  </div>
+  <script src="./DO_NOT_TOUCH/dataLoader.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
